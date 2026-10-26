@@ -1,0 +1,14 @@
+# Signed packages contain your certificate and your TV's DUID
+*.wgt
+# Samsung certificates and signing profiles
+*.p12
+*.pfx
+profiles.xml
+SamsungCertificate/
+# Tizen build output
+.buildResult/
+.manifest.tmp
+.delta.lst
+# Local tool settings
+.claude/
+.DS_Store

@@ -1,0 +1,130 @@
+:root {
+    --bg: #0d0f12;
+    --tile: #1b1f26;
+    --tile-focus: #2b3340;
+    --text: #e8ebf0;
+    --muted: #8a93a3;
+    --accent: #6ea8ff;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "SamsungOne", "Samsung Sans", sans-serif;
+}
+
+body { transition: background-color 0.4s; }
+
+header {
+    display: flex;
+    align-items: baseline;
+    gap: 32px;
+    padding: 56px 96px 0;
+}
+
+#greeting { font-size: 40px; color: var(--muted); }
+#clock { font-size: 64px; font-weight: 300; margin-left: auto; }
+#date { font-size: 32px; color: var(--muted); }
+
+main {
+    height: 880px;
+    overflow: hidden;
+    padding: 0 96px;
+}
+
+#focus-name {
+    font-size: 72px;
+    font-weight: 600;
+    height: 110px;
+    padding-top: 24px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+h2 {
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 28px 0 16px;
+}
+
+.row { display: flex; gap: 28px; }
+.grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 28px; }
+
+.tile {
+    height: 160px;
+    background: var(--tile);
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: 4px solid transparent;
+    transition: transform 0.15s, background-color 0.15s, border-color 0.15s;
+    position: relative;
+}
+
+.row .tile { width: 254px; }
+
+.tile img { width: 88px; height: 88px; object-fit: contain; }
+.tile span {
+    font-size: 22px;
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tile.input span { font-size: 34px; font-weight: 600; }
+
+.tile.focused {
+    background: var(--tile-focus);
+    border-color: var(--accent);
+    transform: scale(1.08);
+    z-index: 1;
+}
+
+.tile.fav::after {
+    content: "★";
+    position: absolute;
+    top: 8px;
+    right: 14px;
+    font-size: 22px;
+    color: var(--accent);
+}
+
+.hint { font-size: 22px; color: var(--muted); }
+
+footer {
+    position: absolute;
+    bottom: 28px;
+    left: 96px;
+}
+
+#toast {
+    position: absolute;
+    bottom: 64px;
+    right: 96px;
+    padding: 18px 32px;
+    border-radius: 14px;
+    background: var(--tile-focus);
+    font-size: 26px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#toast.show { opacity: 1; }
+
+/* While an HDMI picture is shown, hide the dashboard behind it. */
+body.watching > *:not(#toast) { visibility: hidden; }
+body.watching { background: transparent; }

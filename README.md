@@ -6,15 +6,6 @@ a grid of installed apps, without Smart Hub's banners and recommendation rows.
 It's a regular Tizen web app, installed through Developer Mode with your own Samsung
 certificate. It doesn't remove or change anything on the TV.
 
-Not affiliated with Samsung. For Android and Google TV, see
-[CleanYourTV](https://github.com/Gathin23/cleanyourtv).
-
-## Limitations
-
-- The Home button still opens Samsung's Smart Hub. Apps can't replace it.
-- Samsung's own apps and ad services can't be removed or disabled with developer access.
-- You need to build and sign it yourself. Samsung certificates are tied to specific TVs, so
-  there's no ready-made download.
 
 ## Usage
 
